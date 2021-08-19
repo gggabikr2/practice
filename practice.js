@@ -1,62 +1,23 @@
-class Counter {
-  constructor() {
-    this.value = 0;
-  }
+function Person(first, last, age, gender, interests){
 
-  increase() {
-    this.value++;
-  }
-
-  decrease() {
-    this.value--;
-  }
-
-  getValue() {
-    return this.value;
-  }
+  this.first = first;
+  this.last = last;
+  this.age = age;
+  this.gender = gender;
+  this.interests = interests;
 }
 
-let counter1 = new Counter()
-counter1.increase()
-counter1.getValue() // 1
-counter1.value // 1: 접근가능
+var person1 = new Person('Jason','Lee', '29', 'male', ['coding', 'reading books'])
 
-let counter2 = new Counter()
-counter2.decrease()
-counter2.decrease()
-counter2.getValue() // -2
-
-counter2.value = 4;
-
-console.log(counter2.getValue())
-console.log(counter2.value)
+console.log(person1.valueOf())
 
 
-// function makeCounter() {
-//   let value = 0
-//   return {
-//     increase: function() {
-//       value++ 
-//     },
-//     decrease: function() {
-//       value--
-//     },
-//     getValue: function() {
-//       return value;
-//     }
-//   }
-// }
+var person2 = Object.create(person1);
+console.log(person2.__proto__)
 
-// let counter1 = makeCounter()
-// counter1.increase()
-// counter1.getValue() // 1
 
-// let counter2 = makeCounter()
-// counter2.decrease()
-// counter2.decrease()
-// counter2.getValue() // -2
+Person.prototype.farewell = function() {
+  alert(this.name.first + ' has left the building. Bye for now!');
+};
 
-// counter2.value = 3
-
-// console.log(counter2.getValue())
-// console.log(counter2.value)
+person1.farewell()
