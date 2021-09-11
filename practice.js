@@ -16,8 +16,13 @@ var person2 = Object.create(person1);
 console.log(person2.__proto__)
 
 
-Person.prototype.farewell = function() {
-  alert(this.name.first + ' has left the building. Bye for now!');
-};
+var person3 = new person1.constructor('Soomin','Park','29','female',['singing','designing'])
 
-person1.farewell()
+console.log(person3)
+
+
+console.log(person1.constructor)
+console.log(person2.constructor)
+console.log(person3.first)
+console.log(person3.age)
+
